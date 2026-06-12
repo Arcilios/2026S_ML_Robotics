@@ -124,7 +124,7 @@ def perceptron(feature_matrix, labels, T):
     theta = np.zeros(d)
     theta_0 = 0
     for t in range(T):
-        order = get_order(nsamples, t + 1) #Please use this approach to randomize your order so you can compare with other students
+        order = get_order(nsamples, t) #Please use this approach to randomize your order so you can compare with other students
         for i in order:
             theta, theta_0 = perceptron_single_step_update(feature_matrix[i], labels[i], theta, theta_0)
     return (theta, theta_0)
@@ -170,7 +170,7 @@ def average_perceptron(feature_matrix, labels, T):
     theta_sum = np.zeros(d)
     theta_0_sum = 0
     for t in range(T):
-        order = get_order(nsamples, t + 1) #Please use this approach to randomize your order so you can compare with other students
+        order = get_order(nsamples, t) #Please use this approach to randomize your order so you can compare with other students
         for i in order:
             theta, theta_0 = perceptron_single_step_update(feature_matrix[i], labels[i], theta, theta_0)
             theta_sum += theta
@@ -256,7 +256,7 @@ def pegasos(feature_matrix, labels, T, L):
     theta_0 = 0
     counter = 1
     for t in range(T):
-        order = get_order(nsamples, t + 1) #Please use this approach to randomize your order so you can compare with other students
+        order = get_order(nsamples, t)#Please use this approach to randomize your order so you can compare with other students
         for i in order:
             eta = 1 / np.sqrt(counter)
             theta, theta_0 = pegasos_single_step_update(feature_matrix[i], labels[i], L, eta, theta, theta_0)
